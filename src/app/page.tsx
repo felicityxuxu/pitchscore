@@ -28,11 +28,14 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Score Your Pitch Deck
+            <br />
+            <span className="text-blue-600">Like a Pro Investor</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-2">
-            100% AI-Powered and Instantly
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Get instant, comprehensive analysis of your pitch deck with AI-powered insights.
+            Improve your chances of securing funding with detailed scoring and actionable feedback.
           </p>
           <Badge variant="secondary" className="mb-12 bg-blue-50 text-blue-700 border-blue-200">
             Trusted by 500+ startups
