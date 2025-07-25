@@ -2,207 +2,261 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Upload, BarChart3, Target, Clock, CheckCircle, Star, Mail, Users, Share2 } from "lucide-react"
+import { Upload, BarChart3, Target, Clock, CheckCircle, Star, Mail, Users, Share2, TrendingUp, Lightbulb } from "lucide-react"
 import UploadSection from "@/components/UploadSection"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <main className="min-h-screen bg-white">
+      {/* Simple Header */}
+      <header className="border-b border-gray-100 bg-white">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between max-w-6xl">
           <div className="flex items-center space-x-2">
-            <BarChart3 className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
-              PitchScore
-            </h1>
+            <BarChart3 className="h-7 w-7 text-blue-600" />
+            <span className="text-xl font-semibold text-gray-900">PitchScore</span>
           </div>
-          <Button variant="outline">Sign In</Button>
+          <div className="flex items-center space-x-6">
+            <nav className="hidden md:flex space-x-6">
+              <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">API</a>
+              <a href="#" className="text-gray-600 hover:text-gray-900 text-sm">Pricing</a>
+            </nav>
+            <Button variant="outline" size="sm">Sign In</Button>
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <Badge variant="secondary" className="mb-4">
-          AI-Powered Analysis
-        </Badge>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600 bg-clip-text text-transparent">
-          Score Your Pitch Deck
-          <br />
-          Like a Pro Investor
-        </h1>
-        <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
-          Get instant, comprehensive analysis of your pitch deck with AI-powered insights.
-          Improve your chances of securing funding with detailed scoring and actionable feedback.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="text-lg px-8 py-6">
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            Score Your Pitch Deck
+          </h1>
+          <p className="text-xl text-gray-600 mb-2">
+            100% AI-Powered and Instantly
+          </p>
+          <Badge variant="secondary" className="mb-12 bg-blue-50 text-blue-700 border-blue-200">
+            Trusted by 500+ startups
+          </Badge>
+
+          {/* Main Upload Section */}
+          <div className="max-w-2xl mx-auto">
+            <UploadSection />
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Section */}
+      <section className="py-16 px-6 bg-gray-50">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Investor-grade analysis</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Content Analysis</h3>
+              <p className="text-gray-600 text-sm">Deep dive into your business model, market size, and competitive positioning</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Market Opportunity</h3>
+              <p className="text-gray-600 text-sm">Evaluate market size, growth potential, and competitive landscape</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Instant Results</h3>
+              <p className="text-gray-600 text-sm">Get comprehensive analysis in minutes, not days</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Analysis Features */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Comprehensive scoring across 6 key metrics
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Our AI analyzes every aspect of your pitch deck using the same criteria that professional investors use to evaluate startups.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Content clarity and problem-solution fit</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Market opportunity assessment</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Business model validation</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Financial projections review</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Design quality and flow</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">Storytelling coherence</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-8">
+              <div className="text-center mb-6">
+                <div className="text-4xl font-bold text-gray-900 mb-2">76<span className="text-2xl text-gray-500">/100</span></div>
+                <Badge className="bg-green-100 text-green-800">Good</Badge>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Content Clarity</span>
+                  <span className="font-medium">82/100</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-blue-600 h-2 rounded-full" style={{width: '82%'}}></div>
+                </div>
+
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Market Opportunity</span>
+                  <span className="font-medium">74/100</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-blue-600 h-2 rounded-full" style={{width: '74%'}}></div>
+                </div>
+
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Design Quality</span>
+                  <span className="font-medium">85/100</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="bg-blue-600 h-2 rounded-full" style={{width: '85%'}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Collaboration Features */}
+      <section className="py-16 px-6 bg-yellow-50">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Share insights with your team
+          </h2>
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+            Whether you want to send a report to investors or collaborate with co-founders, PitchScore makes it easy to share your analysis.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Mail className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Email Reports</h3>
+              <p className="text-gray-600 text-sm">Send professional analysis reports directly to investors and advisors</p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Team Sharing</h3>
+              <p className="text-gray-600 text-sm">Collaborate with co-founders and team members on improvements</p>
+            </div>
+
+            <div className="bg-white rounded-lg p-6 shadow-sm">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Share2 className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">PDF Export</h3>
+              <p className="text-gray-600 text-sm">Download professional reports for meetings and applications</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-6xl text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Founders love us. You will too.</h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p className="text-gray-700 mb-4 italic">
+                "PitchScore helped us identify weak points in our deck before meeting investors. We raised $2M in our Series A."
+              </p>
+              <div className="text-sm">
+                <div className="font-semibold text-gray-900">Sarah Chen</div>
+                <div className="text-gray-600">CEO, TechFlow</div>
+              </div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p className="text-gray-700 mb-4 italic">
+                "The AI analysis was spot on. It gave us actionable feedback that we implemented immediately."
+              </p>
+              <div className="text-sm">
+                <div className="font-semibold text-gray-900">Marcus Rodriguez</div>
+                <div className="text-gray-600">Founder, GreenStart</div>
+              </div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <p className="text-gray-700 mb-4 italic">
+                "Game-changer for early-stage founders. The scoring system is incredibly detailed and helpful."
+              </p>
+              <div className="text-sm">
+                <div className="font-semibold text-gray-900">Emily Zhang</div>
+                <div className="text-gray-600">Co-founder, DataLens</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-16 px-6 bg-gray-900 text-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to get your score?</h2>
+          <p className="text-gray-300 mb-8">
+            Join 500+ startups who have improved their pitch decks with AI-powered analysis.
+          </p>
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
             <Upload className="mr-2 h-5 w-5" />
             Analyze Your Deck
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-            View Sample Report
-          </Button>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Comprehensive Pitch Deck Analysis</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Our AI analyzes every aspect of your pitch deck to provide investor-grade feedback
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-            <CardHeader>
-              <Target className="h-12 w-12 text-blue-600 mb-4" />
-              <CardTitle>Content Analysis</CardTitle>
-              <CardDescription>
-                Deep analysis of your business model, market size, competitive landscape, and financial projections
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Problem & Solution Clarity</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Market Opportunity Assessment</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Business Model Validation</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Financial Projections Review</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-            <CardHeader>
-              <BarChart3 className="h-12 w-12 text-green-600 mb-4" />
-              <CardTitle>Design & Flow</CardTitle>
-              <CardDescription>
-                Evaluation of visual design, slide flow, and storytelling effectiveness for maximum investor impact
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Visual Design Quality</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Slide Flow & Structure</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Data Visualization</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Storytelling Coherence</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-            <CardHeader>
-              <Clock className="h-12 w-12 text-purple-600 mb-4" />
-              <CardTitle>Instant Results</CardTitle>
-              <CardDescription>
-                Get your comprehensive analysis report in minutes, not days, with actionable recommendations
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Overall Score (0-100)</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Detailed Breakdown</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Improvement Suggestions</li>
-                <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Investor Readiness Level</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <Separator className="my-8" />
-
-      {/* Collaboration Section */}
-      <section className="container mx-auto px-4 py-16 bg-slate-50/50">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Collaborate with Your Team</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Share insights instantly and get your entire team aligned on pitch deck improvements
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <Card className="border-0 shadow-lg bg-white text-center">
-            <CardHeader>
-              <Mail className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <CardTitle>Email Reports</CardTitle>
-              <CardDescription>
-                Send professional analysis reports directly to investors, advisors, or team members
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Professionally formatted reports</li>
-                <li>• Complete scoring breakdown</li>
-                <li>• Actionable recommendations</li>
-                <li>• Custom personal messages</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-white text-center">
-            <CardHeader>
-              <Users className="h-12 w-12 text-green-600 mx-auto mb-4" />
-              <CardTitle>Team Sharing</CardTitle>
-              <CardDescription>
-                Collaborate with co-founders, advisors, and team members on pitch improvements
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Share with multiple team members</li>
-                <li>• Real-time collaboration</li>
-                <li>• Track improvement progress</li>
-                <li>• Centralized feedback collection</li>
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg bg-white text-center">
-            <CardHeader>
-              <Share2 className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-              <CardTitle>Export & Download</CardTitle>
-              <CardDescription>
-                Download professional PDF reports for meetings, applications, and record keeping
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li>• Professional PDF format</li>
-                <li>• Branded report templates</li>
-                <li>• Easy sharing and printing</li>
-                <li>• Archive for future reference</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <Separator className="my-8" />
-
-      {/* Upload Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Your Score?</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Upload your pitch deck and get comprehensive analysis in minutes
-          </p>
-        </div>
-        <UploadSection />
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <BarChart3 className="h-6 w-6" />
-            <span className="text-xl font-bold">PitchScore</span>
+      {/* Simple Footer */}
+      <footer className="bg-white border-t border-gray-200 py-12 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <BarChart3 className="h-6 w-6 text-blue-600" />
+              <span className="font-semibold text-gray-900">PitchScore</span>
+            </div>
+            <div className="text-sm text-gray-600">
+              © 2025 PitchScore. Helping startups get investor-ready.
+            </div>
           </div>
-          <p className="text-slate-400">
-            © 2025 PitchScore. Helping startups get investor-ready.
-          </p>
         </div>
       </footer>
     </main>

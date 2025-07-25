@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
-import pdf from 'pdf-parse'
+
+// Dynamic import for pdf-parse to avoid build issues
+async function parsePDF(buffer: Buffer) {
+  try {
+    const pdf = await import('pdf-parse')
+    return await pdf.default(buffer)
+  } catch (error) {
+    console.error('PDF parsing error:', error)
+    throw new Error('Failed to parse PDF')
+  }
+}
 
 // Initialize OpenAI client
 const openai = new OpenAI({
@@ -53,7 +63,7 @@ export async function POST(request: NextRequest) {
     // Extract text from PDF
     let pdfText = ''
     try {
-      const pdfData = await pdf(buffer)
+      const pdfData = await parsePDF(buffer)
       pdfText = pdfData.text
     } catch (error) {
       console.error('PDF parsing error:', error)
